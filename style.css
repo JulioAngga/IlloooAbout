@@ -92,3 +92,12 @@ h1, h2 {
     border-radius: 5px;
     cursor: pointer;
 }
+.sidebar {
+    position: fixed; /* Pastikan sidebar tetap */
+    z-index: 10; /* Letakkan sidebar di atas konten lainnya */
+}
+
+main {
+    position: relative; /* Pastikan konten bisa tertimpa */
+    z-index: 1; /* Letakkan konten di bawah sidebar */
+}
