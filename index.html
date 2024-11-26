@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Portfolio</title>
+    <title>About Illooo</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -15,29 +14,66 @@
     <div class="sidebar" id="sidebar">
         <span class="close-btn" onclick="toggleMenu()">×</span>
         <ul>
-            <li><a href="#home" onclick="showPage('home')">Home</a></li>
-            <li><a href="#pribadi" onclick="showPage('pribadi')">About IRL</a></li>
-            <li><a href="#ingame" onclick="showPage('ingame')">About In-Game</a></li>
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('pribadi')">About IRL</a></li>
+            <li><a href="#" onclick="showPage('ingame')">About In-Game</a></li>
+            <li><a href="#" onclick="showPage('media')">Media</a></li>
+            <li><a href="#" onclick="showPage('share-link')">Share Link</a></li>
+            <li><a href="#" onclick="showPage('bagikan-web')">Bagikan Web</a></li>
+            <li><a href="#" onclick="showPage('terima-kasih')">Terima Kasih</a></li>
         </ul>
     </div>
     <main id="main-content">
-        <div class="content fade-in" id="home">
+        <div class="content" id="home">
             <h1>Selamat Datang!</h1>
             <p>Ini adalah Web resmi tentang <strong>Illooo</strong>. Pilih menu untuk melihat informasi lebih lanjut.</p>
         </div>
-        <div class="content fade-in" id="pribadi" style="display: none;">
+        
+        <div class="content" id="pribadi" style="display: none;">
             <h2>About IRL</h2>
             <p><strong>Nama Lengkap:</strong> Julio Angga Pratama</p>
             <p><strong>Tempat, Tanggal Lahir:</strong> Jakarta, 14 Juli 2009</p>
             <p><strong>Hobi:</strong> Bermain game, menulis, dan nonton anime :).</p>
             <p><strong>Motto Hidup:</strong> "Berdiri diatas kaki sendiri."</p>
         </div>
-        <div class="content fade-in" id="ingame" style="display: none;">
+        
+        <div class="content" id="ingame" style="display: none;">
             <h2>About In-Game</h2>
             <p><strong>Nickname:</strong> Illooo</p>
             <p><strong>Level:</strong> -</p>
             <p><strong>Role:</strong> -</p>
             <p><strong>Game Favorit:</strong> Minecraft, Valorant, dan Genshin Impact.</p>
+        </div>
+        
+        <div class="content" id="media" style="display: none;">
+            <h2>Media</h2>
+            <div class="video-container" id="videoContainer" style="display: none;">
+                <video id="videoPlayer" controls>
+                    <source src="video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <div class="content" id="share-link" style="display: none;">
+            <h2>Share Link</h2>
+            <div id="links-list"></div>
+        </div>
+
+        <div class="content" id="bagikan-web" style="display: none;">
+            <h2>Bagikan Web</h2>
+            <p>Bagikan web ini ke teman-temanmu!</p>
+            <div class="share-buttons">
+                <button onclick="share('whatsapp')">WhatsApp</button>
+                <button onclick="share('facebook')">Facebook</button>
+                <button onclick="share('twitter')">Twitter</button>
+            </div>
+        </div>
+
+        <div class="content" id="terima-kasih" style="display: none;">
+            <h2>Terima Kasih!</h2>
+            <p>Terima kasih telah membagikan web ini!</p>
+            <p>Semoga informasi di dalamnya bermanfaat. Jangan lupa untuk kembali lagi!</p>
         </div>
     </main>
     <script src="script.js"></script>
