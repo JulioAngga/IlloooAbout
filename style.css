@@ -1,9 +1,10 @@
-/* CSS */
+/* Modernized CSS */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #6b23a7;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #6b23a7, #8e44ad);
     color: #fff;
+    overflow-x: hidden;
 }
 
 header {
@@ -11,12 +12,13 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background-color: #4a167e;
+    background-color: rgba(74, 22, 126, 0.9);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .menu-icon {
@@ -30,8 +32,8 @@ header {
     left: -350px;
     width: 300px;
     height: 100%;
-    background-color: #4a167e;
-    transition: left 0.3s;
+    background-color: rgba(74, 22, 126, 0.95);
+    transition: left 0.5s ease;
     padding: 20px;
 }
 
@@ -59,11 +61,17 @@ header {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #ff9ff3;
 }
 
 main {
     padding: 20px;
     text-align: center;
+    animation: fadeIn 1.5s;
 }
 
 h1, h2 {
@@ -74,23 +82,26 @@ h1, h2 {
     text-align: left;
     margin: 0 auto;
     max-width: 600px;
-    background-color: #4a167e;
+    background-color: rgba(74, 22, 126, 0.9);
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(20px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.nav-buttons {
-    margin-top: 20px;
+.content.fade-in {
+    transform: translateY(0);
+    opacity: 1;
 }
 
-.nav-buttons button {
-    padding: 10px 20px;
-    margin: 10px;
-    background-color: #fff;
-    color: #4a167e;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 .sidebar {
     position: fixed; /* Pastikan sidebar tetap */
