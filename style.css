@@ -1,22 +1,22 @@
-/* CSS Global */
+/* General */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #6b23a7;
-    color: #fff;
+    color: #333;
+    background-color: #e8f5ff; /* Background utama untuk tab */
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    background-color: #4a167e;
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: white;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
+.logo img {
+    width: 100px;
 }
 
 .menu-icon {
@@ -26,93 +26,107 @@ header {
 
 .sidebar {
     position: fixed;
+    right: -290px;
     top: 0;
-    left: -350px;
-    width: 300px;
+    width: 250px;
     height: 100%;
-    background-color: #4a167e;
-    transition: left 0.3s;
+    background-color: #4a90e2;
     padding: 20px;
-    z-index: 1000;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease;
 }
 
 .sidebar.active {
-    left: 0;
+    right: -15px;
 }
 
 .close-btn {
+    display: block;
+    text-align: right;
     font-size: 24px;
     cursor: pointer;
-    margin-bottom: 20px;
-    display: block;
+    color: white;
 }
 
 .sidebar ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
 
-.sidebar ul li {
-    margin: 15px 0;
+.sidebar li {
+    margin: 20px 0;
 }
 
-.sidebar ul li a {
-    color: #fff;
+.sidebar a {
+    color: white;
     text-decoration: none;
     font-size: 18px;
 }
 
-main {
+#main-content {
+    transition: margin-right 0.3s ease;
     padding: 20px;
-    text-align: center;
-}
-
-h1, h2 {
-    margin-bottom: 20px;
 }
 
 .content {
-    text-align: left;
-    margin: 0 auto;
-    max-width: 600px;
-    background-color: #4a167e;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-.video-container {
+.banner-image {
+    max-width: 100%;
+    height: auto;
     margin-top: 20px;
-    text-align: center;
-    border: 0px solid white;
-    padding: 10px;
-    display: none;
+}
+
+.share-buttons button {
+    background-color: #f4f4f4;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.share-buttons img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+/* Video Container */
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 video {
     width: 100%;
-    max-width: 700px;
+    max-width: 640px;
     border-radius: 10px;
-    border: 5px solid #fff;
 }
 
-.share-buttons button {
-    padding: 10px 20px;
+.segmen-nav button {
     margin: 10px;
-    background-color: #fff;
-    color: #4a167e;
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Responsivitas */
-@media screen and (max-width: 768px) {
-    .sidebar {
-        width: 250px;
-    }
+.segmen-nav button:hover {
+    background-color: #357abd;
+}
 
-    video {
-        width: 100%;
-        max-width: none;
-    }
+.profile-pic {
+    max-width: 100%;
+    height: auto;
 }
