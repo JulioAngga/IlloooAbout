@@ -1,54 +1,48 @@
 function toggleMenu() {
     const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('main-content');
     sidebar.classList.toggle('active');
+    if (sidebar.classList.contains('active')) {
+        mainContent.style.marginRight = '250px';
+    } else {
+        mainContent.style.marginRight = '0';
+    }
 }
 
 function showPage(page) {
     const sections = document.querySelectorAll('.content');
-    sections.forEach(section => {
-        section.style.display = 'none';
-    });
-
-    const videoContainer = document.getElementById('videoContainer');
-    const videoPlayer = document.getElementById('videoPlayer');
-
+    sections.forEach(section => section.style.display = 'none');
     document.getElementById(page).style.display = 'block';
+}
 
-    // Jika halaman yang dibuka adalah "media", tampilkan video
-    if (page === 'media') {
-        videoContainer.style.display = 'block';
-        videoPlayer.play();  // Memulai video jika halaman media dipilih
-    } else {
-        // Jika bukan halaman media, sembunyikan video dan hentikan pemutaran
-        videoContainer.style.display = 'none';
-        videoPlayer.pause();
-        videoPlayer.currentTime = 0; // Reset video ke awal
-    }
+function showSegment(segmentId) {
+    const segments = document.querySelectorAll('.segmen');
+    segments.forEach(segment => segment.style.display = 'none');
+    document.getElementById(segmentId).style.display = 'block';
 }
 
 function share(platform) {
-    const url = window.location.href;
-    if (platform === 'whatsapp') {
-        window.open(`https://wa.me/?text=${encodeURIComponent(url)}`, '_blank');
-    } else if (platform === 'facebook') {
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-    } else if (platform === 'twitter') {
-        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`, '_blank');
+    let url;
+    const currentUrl = window.location.href; // Get the current page URL
+
+    switch (platform) {
+        case 'whatsapp':
+            url = `https://api.whatsapp.com/send?text=${encodeURIComponent(currentUrl)}`;
+            break;
+        case 'facebook':
+            url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`;
+            break;
+        case 'twitter':
+            url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}`;
+            break;
+        default:
+            alert('Platform not supported');
+            return;
     }
 
-    // Arahkan ke halaman "Terima Kasih" setelah berbagi
+    // Open the sharing URL in a new tab/window
+    window.open(url, '_blank');
+
+    // Redirect to the "Terima Kasih" section after sharing
     showPage('terima-kasih');
 }
-
-// Fungsi untuk menambahkan link ke halaman Share Link
-function addLink(link) {
-    const linksList = document.getElementById("links-list");
-    const newLink = document.createElement("div");
-    newLink.innerHTML = `<a href="${link}" target="_blank">${link}</a>`;
-    linksList.appendChild(newLink);
-}
-
-// Misalnya menambahkan beberapa link secara otomatis
-addLink("-");
-addLink("-");
-addLink("-");
