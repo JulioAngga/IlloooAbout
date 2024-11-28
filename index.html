@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Illooo</title>
+    <title>Illooo Web</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <div class="logo">Illooo</div>
+        <div class="logo">
+            <img src="logo.png" alt="Illooo Logo">
+        </div>
         <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
     </header>
+
+    <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <span class="close-btn" onclick="toggleMenu()">×</span>
         <ul>
@@ -18,64 +23,91 @@
             <li><a href="#" onclick="showPage('pribadi')">About IRL</a></li>
             <li><a href="#" onclick="showPage('ingame')">About In-Game</a></li>
             <li><a href="#" onclick="showPage('media')">Media</a></li>
-            <li><a href="#" onclick="showPage('share-link')">Share Link</a></li>
             <li><a href="#" onclick="showPage('bagikan-web')">Bagikan Web</a></li>
             <li><a href="#" onclick="showPage('terima-kasih')">Terima Kasih</a></li>
         </ul>
     </div>
+
+    <!-- Main Content -->
     <main id="main-content">
-        <div class="content" id="home">
-            <h1>Selamat Datang!</h1>
-            <p>Ini adalah Web resmi tentang <strong>Illooo</strong>. Pilih menu untuk melihat informasi lebih lanjut.</p>
-        </div>
-        
-        <div class="content" id="pribadi" style="display: none;">
+        <!-- Home -->
+        <section class="content" id="home">
+            <h1>Selamat Datang di IlZil Web!</h1>
+            <p>Temukan informasi menarik tentang Illooo dan Azriel, baik di dunia nyata maupun dalam game favoritnya!</p>
+        </section>
+
+        <!-- About IRL -->
+        <section class="content" id="pribadi" style="display: none;">
             <h2>About IRL</h2>
-            <p><strong>Nama Lengkap:</strong> Julio Angga Pratama</p>
-            <p><strong>Tempat, Tanggal Lahir:</strong> Jakarta, 14 Juli 2009</p>
-            <p><strong>Hobi:</strong> Bermain game, menulis, dan nonton anime :).</p>
-            <p><strong>Motto Hidup:</strong> "Berdiri diatas kaki sendiri."</p>
-        </div>
-        
-        <div class="content" id="ingame" style="display: none;">
+            <nav class="segmen-nav">
+                <button onclick="showSegment('about-julio')">About Julio</button>
+                <button onclick="showSegment('about-azriel')">About Azriel</button>
+            </nav>
+            <div class="segmen" id="about-julio" style="display: none;">
+                <p><strong>Nama:</strong> Julio Angga Pratama</p>
+                <p><strong>Hobi:</strong> Bermain game, menulis, nonton anime, dan menggambar.</p>
+                <img src="julio.png" alt="Julio" class="profile-pic">
+            </div>
+            <div class="segmen" id="about-azriel" style="display: none;">
+                <p><strong>Nama:</strong> -</p>
+                <p><strong>Hobi:</strong> -</p>
+                <img src="azriel.png" alt="Azriel" class="profile-pic">
+            </div>
+        </section>
+
+        <!-- About In-Game -->
+        <section class="content" id="ingame" style="display: none;">
             <h2>About In-Game</h2>
-            <p><strong>Nickname:</strong> Illooo</p>
-            <p><strong>Level:</strong> -</p>
-            <p><strong>Role:</strong> -</p>
-            <p><strong>Game Favorit:</strong> Minecraft, Valorant, dan Genshin Impact.</p>
-        </div>
-        
-        <div class="content" id="media" style="display: none;">
+            <nav class="segmen-nav">
+                <button onclick="showSegment('azriel-segment')">Azriel</button>
+                <button onclick="showSegment('julio-segment')">Julio</button>
+            </nav>
+            <div class="segmen" id="azriel-segment" style="display: none;">
+                <p><strong>In-Game Name:</strong> -</p>
+                <p><strong>Game Fav:</strong> -</p>
+                <img src="azriel-game.png" alt="Azriel In-Game" class="banner-image">
+            </div>
+            <div class="segmen" id="julio-segment" style="display: none;">
+                <p><strong>In-Game Name:</strong> IlloooVrzt</p>
+                <p><strong>Game Fav:</strong> Minecraft PVP</p>
+                <img src="julio-game.png" alt="Julio In-Game" class="banner-image">
+            </div>
+        </section>
+
+        <!-- Media -->
+        <section class="content" id="media" style="display: none;">
             <h2>Media</h2>
-            <div class="video-container" id="videoContainer" style="display: none;">
+            <div class="video-container">
                 <video id="videoPlayer" controls>
                     <source src="video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
+                    Browser kamu tidak mendukung video ini.
                 </video>
             </div>
-        </div>
+        </section>
 
-        <div class="content" id="share-link" style="display: none;">
-            <h2>Share Link</h2>
-            <div id="links-list"></div>
-        </div>
-
-        <div class="content" id="bagikan-web" style="display: none;">
+        <!-- Bagikan Web -->
+        <section class="content" id="bagikan-web" style="display: none;">
             <h2>Bagikan Web</h2>
-            <p>Bagikan web ini ke teman-temanmu!</p>
             <div class="share-buttons">
-                <button onclick="share('whatsapp')">WhatsApp</button>
-                <button onclick="share('facebook')">Facebook</button>
-                <button onclick="share('twitter')">Twitter</button>
+                <button onclick="share('whatsapp')">
+                    <img src="whatsapp.png" alt="WhatsApp"> Share via WhatsApp
+                </button>
+                <button onclick="share('facebook')">
+                    <img src="facebook.png" alt="Facebook"> Share via Facebook
+                </button>
+                <button onclick="share('twitter')">
+                    <img src="twitter.png" alt="Twitter"> Share via Twitter
+                </button>
             </div>
-        </div>
+        </section>
 
-        <div class="content" id="terima-kasih" style="display: none;">
+        <!-- Terima Kasih -->
+        <section class="content" id="terima-kasih" style="display: none;">
             <h2>Terima Kasih!</h2>
             <p>Terima kasih telah membagikan web ini!</p>
-            <p>Semoga informasi di dalamnya bermanfaat. Jangan lupa untuk kembali lagi!</p>
-        </div>
+        </section>
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
